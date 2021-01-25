@@ -2,8 +2,7 @@ package api
 
 import "github.com/gofiber/fiber/v2"
 
-func RoutesUp(app *fiber.App) {
+func RoutesUp(services Services, app *fiber.App) {
 	grp := app.Group("/shopping")
-
-	grp.Get("/buy", buyItemHandler)
+	grp.Post("/buy", services.BuySVC.buyItemHandler)
 }
